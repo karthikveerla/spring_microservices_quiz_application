@@ -14,12 +14,12 @@ import com.msapp.quiz_service.entity.QuizResponse;
 
 @FeignClient("QUESTION-SERVICE")
 public interface QuizInterface {
-        @GetMapping("generate")
+        @GetMapping("question/generate")
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(@RequestParam String categoryName,@RequestParam Integer noOfQuestions);
 
-    @PostMapping("getQuestions")
+    @PostMapping("question/getQuestions")
     public ResponseEntity<List<QuestionWrapper>> getQuestionFromId(@RequestBody List<Integer> questionIds);
 
-    @PostMapping("getScore")
+    @PostMapping("question/getScore")
     public ResponseEntity<Integer> getScore(@RequestBody List<QuizResponse> responses);
 }
